@@ -20,8 +20,18 @@ class AddViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    var newItem: HuntItem?
+    @IBOutlet weak var textField: UITextField!
     @IBAction func cancel(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "DoneItem" {
+            if (!textField.text.isEmpty) {
+                newItem = HuntItem(name: textField.text)
+            }
+        }
     }
 }
 

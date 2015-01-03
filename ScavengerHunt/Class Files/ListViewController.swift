@@ -24,4 +24,17 @@ class ListViewController : UITableViewController {
         cell.textLabel?.text = itemsList[indexPath.row].name
         return cell
     }
+    
+    @IBAction func unwindToList(segue: UIStoryboardSegue) {
+        if segue.identifier == "DoneItem" {
+            let addItemController = segue.sourceViewController as AddViewController
+            if addItemController.newItem != nil {
+                let newItem = addItemController.newItem
+                itemsList.append(newItem!)
+                
+                let indexPath = NSIndexPath(forItem: itemsList.count - 1, inSection: 0)
+                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            }
+        }
+    }
 }
