@@ -10,7 +10,10 @@ import Foundation
 import UIKit
 
 class ListViewController : UITableViewController {
-    var itemsList = ["Cat", "Bird", "Mouse", "Elephant", "Brick"]
+    var itemsList = [HuntItem(name: "Lion"),
+        HuntItem(name: "Tiger"),
+        HuntItem(name: "Apple"),
+        HuntItem(name: "Forest")]
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemsList.count;
@@ -18,7 +21,7 @@ class ListViewController : UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ListViewCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = itemsList[indexPath.row]
+        cell.textLabel?.text = itemsList[indexPath.row].name
         return cell
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141A16761A58767A00ECD680 /* HuntItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A16751A58767A00ECD680 /* HuntItem.swift */; };
 		146EBAD81A57DD8200CDC34F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EBAD71A57DD8200CDC34F /* AppDelegate.swift */; };
 		146EBADA1A57DD8200CDC34F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EBAD91A57DD8200CDC34F /* AddViewController.swift */; };
 		146EBADD1A57DD8200CDC34F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146EBADB1A57DD8200CDC34F /* Main.storyboard */; };
@@ -27,10 +28,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		141A16751A58767A00ECD680 /* HuntItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HuntItem.swift; path = "ScavengerHunt/Class Files/HuntItem.swift"; sourceTree = "<group>"; };
 		146EBAD21A57DD8200CDC34F /* ScavengerHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScavengerHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		146EBAD61A57DD8200CDC34F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		146EBAD71A57DD8200CDC34F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		146EBAD91A57DD8200CDC34F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		146EBAD91A57DD8200CDC34F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = ScavengerHunt/AddViewController.swift; sourceTree = "<group>"; };
 		146EBADC1A57DD8200CDC34F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		146EBADE1A57DD8200CDC34F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		146EBAE11A57DD8200CDC34F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -58,9 +60,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		141A16741A58766100ECD680 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				141A16751A58767A00ECD680 /* HuntItem.swift */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
 		146EBAC91A57DD8200CDC34F = {
 			isa = PBXGroup;
 			children = (
+				141A16741A58766100ECD680 /* Modal */,
 				146EBAFB1A58128400CDC34F /* Controllers */,
 				146EBAD41A57DD8200CDC34F /* ScavengerHunt */,
 				146EBAEA1A57DD8200CDC34F /* ScavengerHuntTests */,
@@ -81,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				146EBAD71A57DD8200CDC34F /* AppDelegate.swift */,
-				146EBAD91A57DD8200CDC34F /* AddViewController.swift */,
 				146EBADB1A57DD8200CDC34F /* Main.storyboard */,
 				146EBADE1A57DD8200CDC34F /* Images.xcassets */,
 				146EBAE01A57DD8200CDC34F /* LaunchScreen.xib */,
@@ -118,6 +128,7 @@
 		146EBAFB1A58128400CDC34F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				146EBAD91A57DD8200CDC34F /* AddViewController.swift */,
 				146EBAF91A58127800CDC34F /* ListViewController.swift */,
 			);
 			name = Controllers;
@@ -226,6 +237,7 @@
 				146EBADA1A57DD8200CDC34F /* AddViewController.swift in Sources */,
 				146EBAD81A57DD8200CDC34F /* AppDelegate.swift in Sources */,
 				146EBAFA1A58127800CDC34F /* ListViewController.swift in Sources */,
+				141A16761A58767A00ECD680 /* HuntItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +431,7 @@
 				146EBAF31A57DD8200CDC34F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		146EBAF41A57DD8200CDC34F /* Build configuration list for PBXNativeTarget "ScavengerHuntTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +440,7 @@
 				146EBAF61A57DD8200CDC34F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
