@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-class ListViewController : UITableViewController {
+class ListViewController : UITableViewController,
+    UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
     var itemsList = [HuntItem(name: "Lion"),
         HuntItem(name: "Tiger"),
         HuntItem(name: "Apple"),
@@ -21,8 +23,41 @@ class ListViewController : UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ListViewCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = itemsList[indexPath.row].name
+        let item = itemsList[indexPath.row]
+        cell.textLabel?.text = item.name
+        
+        if (item.completed) {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            cell.imageView?.image = item.photo
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+            cell.imageView?.image = nil
+        }
+        
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let imagePicker = UIImagePickerController()
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        } else {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        
+        imagePicker.delegate = self
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: NSDictionary) {
+        if let indexPath = tableView.indexPathForSelectedRow() {
+            let selectedItem = itemsList[indexPath.row]
+            let photo = info[UIImagePickerControllerOriginalImage] as UIImage
+            selectedItem.photo = photo
+            
+            dismissViewControllerAnimated(true, completion: {
+                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)})
+        }
     }
     
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
